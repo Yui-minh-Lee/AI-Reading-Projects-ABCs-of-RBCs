@@ -1,49 +1,51 @@
-# The ABCs of RBCs: An Introduction to Dynamic Macroeconomic Models Reading Dashboard
+# 《The ABCs of RBCs》阅读看板
 
-## Current status
+## 当前进度
 
-- Current chapter: Ch06 — Hansen's RBC Model
-- Current focus: Ch04 and Ch05 have been read and reviewed; next step is the Hansen RBC model, especially stationary state, log-linearization, calibration, second moments, and impulse responses.
-- Last updated: 2026-06-18
+- 已完成讲义：第 4—13 章
+- 已重点复核：第 4、5 章
+- 技术专题：calibration、Schur 方法、横截条件（TVC）、随机 RBC 的 log-linearization、动态宏观数学知识路线图
+- 后续重点：继续复核第 6 章 Hansen RBC 模型，并补齐第 1—3 章
+- 最近更新：2026-08-03
 
-## Reading goal
+## 阅读目标
 
-系统掌握从 Solow 模型到 RBC / New Keynesian 动态宏观模型的建模、稳态求解、递归表示、随机化、log-linearization、数值求解与 impulse response analysis 主线；用中文 lecture note 替代一读，并为后续代码复现和模型扩展打基础。
+系统掌握从 Solow 模型到 RBC / New Keynesian 动态宏观模型的建模主线，包括稳态求解、递归表示、随机化、log-linearization、数值求解和 impulse response analysis。中文讲义用于降低第一遍阅读门槛，之后再回到原书与代码处理重点问题。
 
-## Main files
+## 主要入口
 
-- [[BOOK_INFO]]: project metadata, reading goal, conventions, chapter priority assumptions.
-- [[Plan]]: chapter-by-chapter reading plan and suggested schedules.
-- `Sources/Full/`: full original PDF.
-- `Sources/Chapters/`: generated chapter-level source PDFs.
-- `ChapterNotes/`: final Chinese narrative lecture notes, to be generated chapter by chapter.
-- `Q&A/`: optional separate Q&A files, normally not used because Q&A should be embedded in chapter notes.
-- `Reviews/`: initialization report, later weekly reviews and cross-chapter syntheses.
-- `Figures/`: optional source screenshots or self-drawn figures, only when explicitly requested.
+- [`README.md`](README.md)：项目介绍，以及 AI 在整个阅读流程中的作用。
+- [`BOOK_INFO.md`](BOOK_INFO.md)：书目信息、阅读目标和讲义标准。
+- [`Plan.md`](Plan.md)：分章优先级、建议顺序和当前状态。
+- [`ChapterNotes/`](ChapterNotes/)：已经形成的分章讲义与技术专题。
+- [`Prompts/`](Prompts/)：生成、审校和澄清讲义时使用的 Prompt。
+- [`Reviews/`](Reviews/)：初始化记录与阶段性复盘。
 
-## Core concept map
+`Sources/` 与 `Figures/` 只保留在本地，不进入公开仓库。
+
+## 知识主线
 
 ```text
-Solow growth model
-  -> endogenous saving: OLG and infinitely lived agents
-  -> recursive representation: states, controls, Bellman equation
-  -> stochastic recursive models: expectation and Markov chains
-  -> Hansen RBC model: labor, technology shock, calibration, log-linearization
-  -> solution methods: Blanchard-Kahn / generalized Schur and LQ dynamic programming
-  -> extensions:
-       money: cash-in-advance / money in utility / seigniorage
-       nominal rigidity: staggered prices and wages
-       monetary policy and finance: working capital, Taylor rule, Friedman rule
-       open economy: foreign asset, closure, exchange rate dynamics
+Solow 增长模型
+  → 储蓄内生化：OLG 与无限期生存家庭
+  → 递归表示：状态、控制、Bellman equation
+  → 随机递归模型：条件期望与 Markov chain
+  → Hansen RBC：劳动、技术冲击、calibration、log-linearization
+  → 求解方法：Blanchard–Kahn / generalized Schur 与 LQ 动态规划
+  → 模型扩展：
+       货币：cash-in-advance / money in utility / seigniorage
+       名义刚性：交错价格与交错工资
+       货币政策和金融：营运资金、Taylor rule、Friedman rule
+       开放经济：国外资产、闭合条件、汇率动态
 ```
 
-## Suggested reading strategy
+## 建议阅读顺序
 
-Start with the Introduction and Chapter 1 to understand what problem the book is solving. Then treat Chapters 3-7 as the technical core. Chapter 2 is useful background but can be skimmed on first pass. After Chapter 7, choose Part Two chapters according to interest: monetary models begin at Chapter 8, nominal rigidity at Chapters 10-11, policy rules at Chapter 12, and open-economy modeling at Chapter 13.
+先通过第 1 章掌握 Solow 模型的基础结构，再把第 3—7 章作为技术主线。第 2 章提供 OLG 背景，第一遍可以略读。掌握第 7 章后，第二部分可以按兴趣选择：第 8 章进入货币模型，第 10—11 章处理名义刚性，第 12 章讨论金融市场与政策规则，第 13 章扩展到开放经济。
 
-## Next actions
+## 下一步
 
-1. Read/review `ChapterNotes/06_Hansens_RBC_Model.md` carefully; this is the main bottleneck for building baseline RBC/DSGE models.
-2. Pay special attention to the transition from nonlinear equilibrium conditions to the log-linear system and policy matrices.
-3. After Ch06, review `ChapterNotes/07_Linear_Quadratic_Dynamic_Programming.md` as an alternative solution language.
-4. For the VAT research direction, keep Ch06 as the baseline modeling template and add tax wedges only after the baseline mechanism is clear.
+1. 仔细复核 `ChapterNotes/06_Hansens_RBC_Model.md`，重点检查稳态、log-linearization、calibration、二阶矩和 impulse response。
+2. 对照原书检查从非线性均衡条件到线性系统与政策矩阵的过渡。
+3. 复核 `ChapterNotes/07_Linear_Quadratic_Dynamic_Programming.md`，理解另一套求解语言。
+4. 补齐第 1—3 章，使 Solow、OLG、无限期家庭与后续 RBC 主线完整衔接。

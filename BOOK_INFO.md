@@ -1,63 +1,57 @@
-# Book Information
+# 书目信息与学习目标
 
-## Basic Information
+## 基本信息
 
-- Title: The ABCs of RBCs: An Introduction to Dynamic Macroeconomic Models
-- Author: George McCandless
-- Field / Topic: 宏观经济学、Real Business Cycle (RBC)、动态随机一般均衡模型（DSGE）、New Keynesian 模型
-- Edition / Year: Harvard University Press, 2008
-- Source file location: `Sources/Full/The ABCs of RBCs  An Introduction to Dynamic Macroeconomic Models.pdf`
-- Chapter source folder: `Sources/Chapters/`
+- 书名：*The ABCs of RBCs: An Introduction to Dynamic Macroeconomic Models*
+- 作者：George McCandless
+- 领域：宏观经济学、真实经济周期（RBC）、动态随机一般均衡模型（DSGE）、New Keynesian 模型
+- 版本：Harvard University Press，2008
+- 本地原书位置：`Sources/Full/The ABCs of RBCs  An Introduction to Dynamic Macroeconomic Models.pdf`
+- 本地分章材料：`Sources/Chapters/`
 
-## My Reading Goal
+原书和分章材料只用于个人学习，不纳入公开仓库。
 
-系统掌握从 Solow 模型到 RBC / New Keynesian 动态宏观模型的建模、稳态求解、递归表示、随机化、log-linearization、数值求解与 impulse response analysis 主线；用中文 lecture note 替代一读，并为后续代码复现和模型扩展打基础。
+## 我的学习目标
 
-本项目的主要目标不是快速浏览一本通识书，而是把它转化为一套可以反复回看的中文课程讲义。读书笔记需要帮助读者理解每个模型为什么这样写、每一步稳态/一阶条件/线性化为什么这样变形、数值求解到底在解决什么问题。
+我希望系统掌握从 Solow 模型到 RBC / New Keynesian 动态宏观模型的建模主线，包括稳态求解、递归表示、随机化、log-linearization、数值求解和 impulse response analysis，并为后续代码复现与模型扩展打基础。
 
-## Desired Note Style
+这个项目不是为了快速浏览一本通识书，而是要把教材转化为一套能够反复查阅的中文课程讲义。笔记需要回答的不只是“作者得出了什么结论”，还包括模型为什么这样设定、FOC 和稳态如何推导、线性化为什么这样变形，以及数值方法究竟在求什么。
 
-Default:
+## 讲义标准
 
-- Chinese narrative lecture note.
-- Preserve important English terms, especially RBC, DSGE, representative agent, overlapping generations, Bellman equation, value function, policy function, stationary state, log-linearization, calibration, impulse response function, cash-in-advance, Calvo pricing, Taylor rule, small open economy.
-- Main Lecture should be the largest section.
-- Preserve 80-90% of core learning value. For Chapters 4-8, 10, 12, preserve closer to 85-90% because these are method/model-building chapters.
-- Reduce first-pass reading time by 40-60% where feasible.
-- Do not hide non-obvious reasoning.
-- Explain technical terms selectively, not repeatedly.
-- For mathematical derivations, explain the economic meaning before and after the algebra.
-- When the source gives Matlab code, do not reproduce long code blocks by default; summarize what the code is solving and which equations it implements.
+- 以连贯的中文课堂讲解为主，不写成零散提纲。
+- 保留重要英文术语，例如 representative agent、Bellman equation、value function、policy function、stationary state、log-linearization、calibration、impulse response function、cash-in-advance、Calvo pricing 和 Taylor rule。
+- 正文是每章的主体，先讲经济含义，再进入代数推导，推导完成后再解释结果。
+- 目标是保留原章约 80%—90% 的核心学习价值；第 4—8、10、12 章属于方法和建模重点，应更接近 85%—90%。
+- 在不损害关键逻辑的前提下，争取把第一遍阅读时间缩短约 40%—60%。
+- 不跳过非显然的推理步骤，也不反复解释已经清楚的术语。
+- 原书出现较长 Matlab 代码时，默认解释代码解决的问题、对应的方程和数值逻辑，不整段照搬。
 
-## Reading Parameters
+## 阅读参数
 
-- Reading time per day: default 45-60 minutes
-- Days per week: default 4-5 days
-- Target finish date: flexible; recommended first-pass project length 6-8 weeks
-- First-pass depth: Part One careful; Part Two selective normal/careful depending on interest
-- Desired technical depth: 研究生宏观/数量宏观入门到中阶：保留关键数学推导、FOC、Bellman equation、stationary state、log-linear system、calibration 与 Matlab/数值解法逻辑，但用老师式中文讲清主线。
-- Whether low-priority chapters should be skim-only: yes, especially Chapter 2 on first pass and some extension chapters if the immediate goal is core RBC mechanics
+- 每天投入：45—60 分钟
+- 每周频率：4—5 天
+- 建议完成周期：6—8 周，可按实际情况调整
+- 第一遍深度：第一部分仔细阅读；第二部分按研究兴趣选择 normal 或 careful
+- 技术深度：研究生宏观 / 数量宏观入门到中阶
+- 低优先级章节：第一遍可以略读第 2 章；扩展章节可按当前研究方向取舍
 
-## Special Instructions for This Book
+## 需要重点掌握的内容
 
-- Concepts to pay special attention to:
-  - Solow model as the base structure for later RBC models.
-  - Endogenous saving and representative-agent foundations.
-  - Recursive formulation: state, control, value function, policy function.
-  - Stochastic dynamic programming and Markov chains.
-  - Hansen's RBC model, divisible vs indivisible labor, log-linearization, and Blanchard-Kahn solution logic.
-  - Linear Quadratic Dynamic Programming and its relationship to log-linear methods.
-  - Monetary extensions: cash-in-advance, money-in-utility, seigniorage.
-  - Nominal rigidity: staggered pricing/wage setting and Calvo-style mechanisms.
-  - Monetary policy rules, financial markets, and small open economy closure.
-- Chapters likely to be important:
-  - Core methods: Chapters 1, 3, 4, 5, 6, 7.
-  - Main extensions: Chapters 8, 10, 12, 13.
-- Chapters likely to skim:
-  - Chapter 2 can be skimmed on first pass if the immediate goal is standard representative-agent RBC modeling.
-  - Chapter 9 and Chapter 11 can be normal/skim unless monetary utility or wage rigidity is central to the user's later project.
-- Whether Q&A should be included inside each note: yes.
-- Whether separate Q&A files are ever needed: only if explicitly requested.
-- Figures, tables, or formulas that require special care:
-  - All figures showing simulations, value functions, policy functions, impulse response functions, and log-linearized systems should be marked for original-check if not embedded.
-  - Equations defining stationary states, first-order conditions, Bellman equations, matrix systems, and Blanchard-Kahn / generalized Schur solution conditions require especially careful treatment.
+- Solow 模型如何成为后续 RBC 模型的基础结构。
+- 内生储蓄与代表性家庭的微观基础。
+- 递归表示中的状态变量、控制变量、价值函数和政策函数。
+- 随机动态规划、条件期望与 Markov chain。
+- Hansen RBC 模型、可分与不可分劳动、log-linearization 和 Blanchard–Kahn 求解逻辑。
+- 线性二次动态规划（LQ Dynamic Programming）与对数线性方法之间的关系。
+- 货币扩展：cash-in-advance、money in utility 和 seigniorage。
+- 名义刚性：交错定价、交错工资与 Calvo 类机制。
+- 货币政策规则、金融市场和小型开放经济的闭合方式。
+
+## 章节优先级
+
+- 核心方法：第 1、3、4、5、6、7 章。
+- 主要扩展：第 8、10、12、13 章。
+- 第一遍可压缩：第 2 章；如果货币效用或工资刚性不是当前重点，第 9、11 章也可正常阅读或略读。
+
+每章问答默认直接放在讲义末尾，不单独建立 Q&A 文件。涉及模拟结果、价值函数、政策函数、脉冲响应、稳态方程、矩阵系统和广义 Schur 条件时，应格外重视原文核对；如果 PDF 文本不足以可靠还原图表或公式，必须明确标记不确定性。

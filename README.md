@@ -1,44 +1,88 @@
-# The ABCs of RBCs — AI-Assisted Reading Project
+# 《The ABCs of RBCs》AI 辅助阅读项目
 
-This repository is an AI-assisted direct-reading lecture-note project for George McCandless's *The ABCs of RBCs: An Introduction to Dynamic Macroeconomic Models*.
+这是一个把 AI 真正用进专业学习流程的实践项目。
 
-The goal is to turn the book into Chinese narrative lecture notes that preserve the main economic logic, model-building steps, and key mathematical derivations while reducing first-pass reading friction. It also serves as a portfolio example of a structured human-AI reading workflow: source-grounded chapter processing, reusable prompts, narrative technical notes, visual checks, and iterative review.
+我以 George McCandless 的动态宏观经济学教材 *The ABCs of RBCs: An Introduction to Dynamic Macroeconomic Models* 为对象，尝试解决一个很具体的问题：面对公式多、推导长、前后依赖强的研究生教材，怎样借助 AI 降低第一遍阅读的门槛，同时又不把关键推理压缩成几句似懂非懂的摘要？
 
-> Copyright note: the original book, chapter PDFs, and extracted book figures are intentionally excluded from this public repository. The repository contains original study notes and workflow files only.
+这个仓库记录了我为此搭建的一套 AI 辅助阅读工作流，以及由它产出的中文讲义。它不是让 AI 随手“总结一本书”，而是先定义阅读目标和质量标准，再让 AI 按章节读取材料、还原推导逻辑、生成讲义、接受审校并持续修订。
 
-## Current status
+> 出于版权考虑，仓库不包含原书 PDF、拆分后的章节 PDF 和原书图表截图，只公开我生成和整理的学习成果与工作流文件。
 
-- Book metadata and project-specific agent instructions are in place.
-- The source PDFs and extracted book figures are kept locally and excluded by `.gitignore`.
-- Lecture notes cover recursive methods, the RBC model, monetary models, nominal rigidities, monetary policy, and small open economy models.
-- Ch04 and Ch05 have been read and reviewed.
-- Additional technical notes cover calibration, Schur methods, transversality conditions, and stochastic RBC log-linearization.
+## 这个项目做了什么
 
-## Repository structure
+原书从 Solow 模型出发，逐步进入递归方法、随机动态规划、RBC 模型、货币模型、名义刚性、货币政策和小型开放经济。直接阅读时，困难往往不只在公式本身，而在于作者省略的中间步骤：某个一阶条件为什么这样写，稳态如何代回，非线性系统为什么要 log-linearization，以及数值解最后如何变成 impulse response。
 
-- `AGENTS.md`: customized instructions that define the AI reading-teacher workflow.
-- `BOOK_INFO.md`: metadata, reading objective, technical depth, and conventions.
-- `Home.md`: lightweight reading dashboard.
-- `Plan.md`: reading schedule and chapter status.
-- `Sources/`: local source PDFs (not included in the public repository).
-- `ChapterNotes/`: Chinese narrative lecture notes and technical supplements.
-- `Reviews/`: initialization report, review notes, and cross-chapter synthesis.
-- `Figures/`: local visual references extracted from the source (not included in the public repository).
-- `Prompts/`: reusable prompts for generation, review, and clarification.
+我把 AI 设定为一名“宏观经济学阅读教师”，要求它完成三件事：
 
-## Example agent instruction
+1. 保留模型的状态变量、控制变量、约束条件、FOC、稳态和求解逻辑，不用泛泛的结论替代推导。
+2. 用中文讲清公式前后的经济含义，同时保留 RBC、DSGE、Bellman equation、calibration 等必要英文术语。
+3. 明确标记无法仅靠文本可靠还原的图表和公式，提醒读者回到原书核对，而不是假装信息完整。
+
+最终形成的是一套可以直接阅读的中文叙事讲义。目标不是代替深入研读，而是把第一遍阅读从“逐页硬啃”变成“先建立完整框架，再回原书处理重点”。
+
+## AI 是怎样参与的
 
 ```text
-请参照 AGENTS.md 的规则，处理 Sources/Chapters/01_The_Basic_Solow_Model.pdf，生成 ChapterNotes/01_The_Basic_Solow_Model.md。注意这一章是后续 RBC 模型的起点，请保留核心公式推导，并用中文讲清楚 log-linearization 的直觉。
+设定学习目标与技术深度
+        ↓
+把教材拆分为章节级材料
+        ↓
+用 AGENTS.md 固定角色、质量标准和输出结构
+        ↓
+按章节生成中文叙事讲义，补足非显然的推理步骤
+        ↓
+针对公式、图表和难点进行人工检查与追问
+        ↓
+把澄清结果写回讲义，并沉淀可复用 Prompt
+        ↓
+通过 Plan.md 跟踪进度，形成可继续迭代的知识库
 ```
 
-For the technical core, the recommended reading order is:
+AI 在这里主要承担高耗时、可结构化的工作，例如梳理章节主线、解释推导、统一讲义格式和生成复习问题；我负责确定学习目标、制定约束、判断重点、核对不确定内容，并决定哪些解释需要返工。这种分工比一次性问答更稳定，也让结果能够复查和复用。
 
-1. `01_The_Basic_Solow_Model.pdf`
-2. `03_Infinitely_Lived_Agents.pdf`
-3. `04_Recursive_Deterministic_Models.pdf` — reviewed
-4. `05_Recursive_Stochastic_Models.pdf` — reviewed
-5. `06_Hansens_RBC_Model.pdf`
-6. `07_Linear_Quadratic_Dynamic_Programming.pdf`
+## 目前的成果
 
-Chapter 2 can be skimmed first unless overlapping generations models are important for the immediate goal.
+- 已完成第 4—13 章的中文讲义，覆盖递归确定性模型、递归随机模型、Hansen RBC、货币模型、名义价格与工资刚性、货币政策和小型开放经济。
+- 补充整理了 calibration、Schur 方法、横截条件（TVC）直觉、随机 RBC 的 log-linearization，以及动态宏观数学知识路线图。
+- 建立了生成、审校和难点澄清三类可复用 Prompt。
+- 将每章讲义固定为“阅读说明—核心问题—主讲内容—压缩总结—原文核对项—问答”的结构，方便继续扩展和复习。
+- 已公开 17,000 余行原创学习笔记和工作流文档，不包含原书正文与 PDF。
+
+如果想快速判断讲义质量，可以先看：
+
+- [第 6 章：Hansen 的 RBC 模型](ChapterNotes/06_Hansens_RBC_Model.md)
+- [第 10 章：交错定价模型](ChapterNotes/10_Staggered_Pricing_Model.md)
+- [专题：随机 RBC 模型的对数线性化](ChapterNotes/stochastic_RBC_log_linearization.md)
+- [专题：Schur 方法](ChapterNotes/Schur_method.md)
+
+## 这个项目展示了什么
+
+对我来说，这个项目的重点不是“会使用某个 AI 产品”，而是能否把一个模糊、复杂的知识任务拆成可执行、可检查、可迭代的流程。它主要体现了以下能力：
+
+- **任务设计：**把“读懂一本教材”转化为章节拆分、质量标准、审校规则和进度管理。
+- **Prompt / Agent 工作流设计：**通过稳定的角色说明和输出约束，让多轮产出保持一致。
+- **专业信息处理：**处理动态宏观模型中的数学推导、经济直觉和数值方法，而不是只做表层摘要。
+- **质量控制：**要求 AI 暴露不确定性，对图表、公式和非显然结论保留人工核对环节。
+- **知识沉淀：**把一次性对话转化为结构化文件、可复用 Prompt 和可持续维护的学习仓库。
+
+## 仓库导览
+
+| 路径 | 内容 |
+| --- | --- |
+| [`AGENTS.md`](AGENTS.md) | AI 阅读教师的角色、写作规则、质量标准和文件规范 |
+| [`BOOK_INFO.md`](BOOK_INFO.md) | 选书信息、学习目标和技术深度 |
+| [`Home.md`](Home.md) | 项目看板与知识主线 |
+| [`Plan.md`](Plan.md) | 分章优先级、阅读方式和进度 |
+| [`ChapterNotes/`](ChapterNotes/) | 分章中文讲义与技术专题 |
+| [`Prompts/`](Prompts/) | 初始化、生成讲义、审校和澄清难点的 Prompt |
+| [`Reviews/`](Reviews/) | 项目初始化与阶段性复盘 |
+
+本地的 `Sources/` 和 `Figures/` 目录已通过 `.gitignore` 排除，不会上传到公开仓库。
+
+## 一条实际使用的指令
+
+```text
+请参照 AGENTS.md 的规则，处理 Sources/Chapters/06_Hansens_RBC_Model.pdf，生成 ChapterNotes/06_Hansens_RBC_Model.md。保留稳态、log-linearization、calibration 和数值求解的关键推导；遇到省略步骤时补足逻辑桥梁，对无法可靠读取的图表明确提示回原文核对。
+```
+
+这条指令看起来不长，是因为具体的角色、质量要求、章节模板和异常处理已经集中写进了 `AGENTS.md`。这样可以减少重复提示，也便于后续更换章节或模型时继续复用。

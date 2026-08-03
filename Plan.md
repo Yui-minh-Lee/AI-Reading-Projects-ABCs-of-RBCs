@@ -1,100 +1,72 @@
-# The ABCs of RBCs: An Introduction to Dynamic Macroeconomic Models Fast Reading Plan
-## Goal
-系统掌握从 Solow 模型到 RBC / New Keynesian 动态宏观模型的建模、稳态求解、递归表示、随机化、log-linearization、数值求解与 impulse response analysis 主线；用中文 lecture note 替代一读，并为后续代码复现和模型扩展打基础。
-The goal is efficient first-pass understanding of dynamic macroeconomic model construction, not memorizing every algebraic line or Matlab command.
-Default pace:
+# 《The ABCs of RBCs》阅读计划
 
-- 45-60 minutes per day
-- 4-5 days per week
-- Teacher-style chapter support: Chinese lecture note + concise Q&A inside each note
-## Status Legend
+## 总目标
 
-- Not started
-- Reading
-- Lecture note drafted
-- Q&A drafted
-- Reviewed
-## Reading Modes
+系统掌握从 Solow 模型到 RBC / New Keynesian 动态宏观模型的建模主线，包括稳态求解、递归表示、随机化、log-linearization、数值求解与 impulse response analysis。第一遍阅读的重点是理解模型怎样搭起来、怎样求解，而不是记住每一行代数或 Matlab 命令。
 
-- careful: read the chapter closely and create a full direct-reading lecture note with Q&A.
-- normal: preserve the chapter's main argument and important logic, but compress supporting detail.
-- skim: capture only the main contribution and keep the chapter available for reference.
-## Chapter Priority Plan
-| Item | Title | Source file | Printed pages | Priority | Reading mode | Est. AI-assisted time | Output needed | Status |
-| --- | --- | --- | ---: | --- | --- | ---: | --- | --- |
-| Intro | Introduction | `Sources/Chapters/00b_Introduction.pdf` | 1-4 | Medium | normal | 20 min | Short orientation note + concise Q&A | Not started |
-| Ch01 | The Basic Solow Model | `Sources/Chapters/01_The_Basic_Solow_Model.pdf` | 7-18 | High | careful | 45-60 min | Lecture note + Q&A | Not started |
-| Ch02 | Savings in an OLG Model | `Sources/Chapters/02_Savings_in_an_OLG_Model.pdf` | 19-32 | Medium | skim/normal | 35-45 min | Shorter lecture note + Q&A | Not started |
-| Ch03 | Infinitely Lived Agents | `Sources/Chapters/03_Infinitely_Lived_Agents.pdf` | 33-49 | High | careful | 60 min | Lecture note + Q&A | Not started |
-| Ch04 | Recursive Deterministic Models | `Sources/Chapters/04_Recursive_Deterministic_Models.pdf` | 50-68 | Very High | careful | 75-90 min | Full lecture note + Q&A | Reviewed |
-| Ch05 | Recursive Stochastic Models | `Sources/Chapters/05_Recursive_Stochastic_Models.pdf` | 69-88 | Very High | careful | 75-90 min | Full lecture note + Q&A | Reviewed |
-| Ch06 | Hansen’s RBC Model | `Sources/Chapters/06_Hansens_RBC_Model.pdf` | 89-145 | Very High | careful | 150-180 min | Full lecture note + Q&A; maybe split internally by section | Lecture note drafted |
-| Ch07 | Linear Quadratic Dynamic Programming | `Sources/Chapters/07_Linear_Quadratic_Dynamic_Programming.pdf` | 146-182 | High | normal/careful | 90-120 min | Lecture note + Q&A | Lecture note drafted |
-| Ch08 | Money: Cash in Advance | `Sources/Chapters/08_Money_Cash_in_Advance.pdf` | 183-235 | High | normal/careful | 130-160 min | Lecture note + Q&A | Lecture note drafted |
-| Ch09 | Money in the Utility Function | `Sources/Chapters/09_Money_in_the_Utility_Function.pdf` | 236-257 | Medium | normal | 50-70 min | Lecture note + Q&A | Lecture note drafted |
-| Ch10 | Staggered Pricing Model | `Sources/Chapters/10_Staggered_Pricing_Model.pdf` | 258-305 | High | normal/careful | 120-150 min | Lecture note + Q&A | Not started |
-| Ch11 | Staggered Wage Setting | `Sources/Chapters/11_Staggered_Wage_Setting.pdf` | 306-328 | Medium | normal | 60-80 min | Lecture note + Q&A | Not started |
-| Ch12 | Financial Markets and Monetary Policy | `Sources/Chapters/12_Financial_Markets_and_Monetary_Policy.pdf` | 329-369 | High | normal/careful | 110-140 min | Lecture note + Q&A | Not started |
-| Ch13 | Small Open Economy Models | `Sources/Chapters/13_Small_Open_Economy_Models.pdf` | 370-410 | Medium/High | normal | 100-130 min | Lecture note + Q&A | Not started |
+默认节奏为每天 45—60 分钟、每周 4—5 天。AI 辅助产出采用“中文叙事讲义 + 章末精简问答”的形式。
 
-Total estimated AI-assisted first-pass time: roughly 18-23 hours if all chapters receive notes; roughly 10-13 hours if Chapter 2, 9, and 11 are compressed and Part Two is selective.
+## 状态说明
 
-## Aggressive Plan
+- 尚未开始：还没有形成讲义。
+- 阅读中：正在处理原章或补充材料。
+- 讲义初稿：已经形成可读版本，但还没有完成重点核对。
+- 已复核：已经进行过一轮重点审校。
 
-Use this only if speed matters more than retention. The main aim is to acquire the modeling skeleton and postpone most extensions.
+## 阅读方式
 
-| Session | Target | Mode | Time |
-| --- | --- | --- | ---: |
-| Day 1 | Introduction + Ch01 | normal/careful | 75-90 min |
-| Day 2 | Ch03 | careful | 60-75 min |
-| Day 3 | Ch04 | careful | 75-90 min |
-| Day 4 | Ch05 | careful | 75-90 min |
-| Day 5-6 | Ch06 sections 6.1-6.5 | careful | 3 hours total |
-| Day 7 | Ch06 appendices + Ch07 overview | normal | 2 hours |
-| Day 8 | Ch08 or Ch10 depending on interest | normal | 2 hours |
-| Day 9 | Ch12 or Ch13 selected reading | normal | 2 hours |
+- **仔细阅读（careful）：**完整处理本章，保留主要推导、逻辑桥梁和问答。
+- **正常阅读（normal）：**保留核心论证和重要推理，压缩次要材料。
+- **略读（skim）：**只提取本章的主要贡献，供后续查阅。
 
-## Comfortable Plan
+## 分章计划与进度
 
-This is the best plan if the goal is to actually learn the modeling technology.
+| 章节 | 标题 | 优先级 | 阅读方式 | AI 辅助阅读时间 | 计划产出 | 当前状态 |
+| --- | --- | --- | --- | ---: | --- | --- |
+| 导论 | Introduction | 中 | normal | 20 分钟 | 导读与精简问答 | 尚未开始 |
+| 第 1 章 | The Basic Solow Model | 高 | careful | 45—60 分钟 | 完整讲义与问答 | 尚未开始 |
+| 第 2 章 | Savings in an OLG Model | 中 | skim / normal | 35—45 分钟 | 压缩讲义与问答 | 尚未开始 |
+| 第 3 章 | Infinitely Lived Agents | 高 | careful | 60 分钟 | 完整讲义与问答 | 尚未开始 |
+| 第 4 章 | Recursive Deterministic Models | 很高 | careful | 75—90 分钟 | 完整讲义与问答 | 已复核 |
+| 第 5 章 | Recursive Stochastic Models | 很高 | careful | 75—90 分钟 | 完整讲义与问答 | 已复核 |
+| 第 6 章 | Hansen’s RBC Model | 很高 | careful | 150—180 分钟 | 完整讲义、问答与附录 | 讲义初稿 |
+| 第 7 章 | Linear Quadratic Dynamic Programming | 高 | normal / careful | 90—120 分钟 | 完整讲义与问答 | 讲义初稿 |
+| 第 8 章 | Money: Cash in Advance | 高 | normal / careful | 130—160 分钟 | 完整讲义与问答 | 讲义初稿 |
+| 第 9 章 | Money in the Utility Function | 中 | normal | 50—70 分钟 | 讲义与问答 | 讲义初稿 |
+| 第 10 章 | Staggered Pricing Model | 高 | normal / careful | 120—150 分钟 | 完整讲义与问答 | 讲义初稿 |
+| 第 11 章 | Staggered Wage Setting | 中 | normal | 60—80 分钟 | 讲义与问答 | 讲义初稿 |
+| 第 12 章 | Financial Markets and Monetary Policy | 高 | normal / careful | 110—140 分钟 | 完整讲义与问答 | 讲义初稿 |
+| 第 13 章 | Small Open Economy Models | 中高 | normal | 100—130 分钟 | 讲义与问答 | 讲义初稿 |
 
-| Week | Sessions | Target chapters | Focus |
-| --- | --- | --- | --- |
-| Week 1 | 4-5 | Intro, Ch01, skim Ch02 | Solow base model, why savings needs microfoundations, first contact with stochastic/log-linear thinking |
-| Week 2 | 4-5 | Ch03, Ch04 | Infinitely lived agents, recursive deterministic dynamic programming |
-| Week 3 | 4-5 | Ch05 | Stochastic recursive models, Markov chains, expectations inside Bellman equations |
-| Week 4 | 4-5 | Ch06 first half | Hansen model structure, stationary state, log-linearization |
-| Week 5 | 4-5 | Ch06 second half, Ch07 | Solution methods, Blanchard-Kahn, LQ dynamic programming |
-| Week 6 | 4-5 | Ch08, Ch09 | Monetary RBC extensions: cash in advance and money in utility |
-| Week 7 | 4-5 | Ch10, Ch11 | Nominal rigidity: staggered prices and wages |
-| Week 8 | 4-5 | Ch12, Ch13 | Monetary policy, financial markets, small open economy |
+如果所有章节都形成讲义，预计第一遍 AI 辅助阅读需要约 18—23 小时；如果压缩第 2、9、11 章，并选择性阅读第二部分，预计约 10—13 小时。这是计划值，不是对实际效率提升的测量结果。
 
-Suggested daily split:
+## 推荐顺序
 
-| Week | Day 1 | Day 2 | Day 3 | Day 4 | Day 5 |
-| --- | --- | --- | --- | --- | --- |
-| Week 1 | Intro | Ch01 §§1.1-1.3 | Ch01 §§1.4-1.6 | Ch02 skim | Review |
-| Week 2 | Ch03 fixed labor | Ch03 variable labor/decentralization | Ch04 states/value function | Ch04 approximation | Review |
-| Week 3 | Ch05 probability setup | Ch05 stochastic growth | Ch05 value function | Ch05 Markov chains | Review |
-| Week 4 | Ch06 model setup | Ch06 log-linearization | Ch06 calibration | Ch06 variances | Review |
-| Week 5 | Ch06 IRF/appendices | Ch06 Blanchard-Kahn | Ch07 LQ method | Ch07 stochastic shocks/IRF | Review |
-| Week 6 | Ch08 model | Ch08 log-linear/LQ solution | Ch08 seigniorage | Ch09 | Review |
-| Week 7 | Ch10 setup | Ch10 Phillips curve/log-linearization | Ch10 solution/IRF | Ch11 | Review |
-| Week 8 | Ch12 working capital | Ch12 policy rules | Ch13 preliminary open economy | Ch13 closure/money | Final synthesis |
+第一遍先把第 1、3、4、5、6、7 章连成一条主线。它们依次解决基础增长模型、家庭最优化、递归表示、随机环境、标准 RBC 与数值求解问题。第 6 章是全书的技术瓶颈，如果目标是复现或扩展 RBC / DSGE 模型，不应略读。
 
-## Recommended Plan
+掌握技术主线后，再根据后续方向选择第二部分：
 
-Recommended: first treat Chapters 1, 3, 4, 5, 6, and 7 as the core sequence. Then choose Part Two based on your later project: monetary policy route = Chapters 8, 12; New Keynesian route = Chapters 8, 10, 11, 12; open-economy route = Chapter 13 after you understand Chapter 12.
+- 货币与政策：第 8、12 章。
+- New Keynesian：第 8、10、11、12 章。
+- 开放经济：理解第 12 章后进入第 13 章。
+- OLG：如果研究问题涉及代际结构，再回到第 2 章仔细处理。
 
-Why this is the best default:
+## 八周参考安排
 
-- The book is cumulative: later chapters reuse stationary states, FOCs, log-linear systems, calibration, and impulse response functions.
-- Chapter 6 is the technical bottleneck; it should not be skimmed if the goal is to build or reproduce RBC/DSGE models.
-- Chapter 2 is valuable but not necessary for the main representative-agent RBC sequence on first pass.
-- Part Two is modular: once the solution workflow is clear, extensions can be read selectively.
+| 周次 | 主要内容 | 本周重点 |
+| --- | --- | --- |
+| 第 1 周 | 导论、第 1 章，略读第 2 章 | Solow 基础结构，以及为什么需要储蓄的微观基础 |
+| 第 2 周 | 第 3、4 章 | 无限期家庭与确定性递归方法 |
+| 第 3 周 | 第 5 章 | 随机递归模型、Markov chain 与条件期望 |
+| 第 4 周 | 第 6 章上半 | Hansen 模型、稳态与 log-linearization |
+| 第 5 周 | 第 6 章下半、第 7 章 | calibration、求解、IRF 与 LQ 动态规划 |
+| 第 6 周 | 第 8、9 章 | cash-in-advance 与 money in utility |
+| 第 7 周 | 第 10、11 章 | 交错价格、交错工资与名义刚性 |
+| 第 8 周 | 第 12、13 章 | 政策规则、金融市场和开放经济 |
 
-Practical rule:
+## 当前执行重点
 
-- High priority: complete lecture note + Q&A immediately after reading.
-- Medium priority: create a shorter lecture note + concise Q&A.
-- Low priority: skim unless it becomes important for another chapter.
+1. 复核第 6 章，尤其是非线性均衡条件、稳态、线性系统与政策函数之间的衔接。
+2. 复核第 7 章，并把 LQ 方法与第 6 章的 log-linear / Schur 求解联系起来。
+3. 补齐第 1—3 章，完成从 Solow 到递归 RBC 的前置主线。
+4. 在复核扩展章节时，优先检查公式、矩阵和图表引用；文本提取不可靠的部分必须回原书确认。
