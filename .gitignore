@@ -1,0 +1,22 @@
+# Copyrighted source material is kept locally and is not published.
+Sources/
+Figures/
+
+# Superseded drafts are kept locally but omitted from the portfolio repository.
+ChapterNotes/stale note archive/
+
+# OS and editor metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local AI-tool state and caches
+.codex/
+.agents/
+
+# Temporary files
+*.tmp
+*.bak
+~$*
